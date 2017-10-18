@@ -1,4 +1,4 @@
-package proj2;
+
 
 import static org.junit.Assert.*;
 
@@ -44,6 +44,32 @@ public class LowestCommonAncestorSolutionTest {
 		BT bt = new BT();
 		bt.insert(0);
 		assertEquals(0, bt.FindLCA(0, 0));
+	}
+	
+	@Test
+	public void LCAAtDifferentHeightsInTree() {
+		BT bt = new BT();
+		bt.insert(0);
+		bt.insert(1);
+		bt.insert(2);
+		bt.insert(3);
+		bt.insert(4);
+		bt.insert(5);
+		bt.insert(6);
+		assertEquals(2, bt.FindLCA(6, 4));
+	}
+	
+	@Test
+	public void LCAAtSameHeightInTree() {
+		BT bt = new BT();
+		bt.insert(0);
+		bt.insert(1);
+		bt.insert(2);
+		bt.insert(3);
+		bt.insert(4);
+		bt.insert(5);
+		assertEquals(2, bt.FindLCA(5, 4));
+		
 	}
 
 }
