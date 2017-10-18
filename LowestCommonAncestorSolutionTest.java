@@ -37,7 +37,7 @@ public class LowestCommonAncestorSolutionTest {
 	}
 	
 	@Test
-	public void TreeSearchTrue() {
+	public void TreeSearchTrueAndInsertTest() {
 		BT bt = new BT();
 		bt.insert(0);
 		assertTrue(bt.search(0));
