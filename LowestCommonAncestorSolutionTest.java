@@ -45,5 +45,9 @@ public class LowestCommonAncestorSolutionTest {
 		bt.insert(0);
 		assertEquals(0, bt.FindLCA(0, 0));
 	}
+	
+	@Test
+	public void LCAinDAG() {
+	}
 
 }
