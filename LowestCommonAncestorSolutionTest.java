@@ -102,7 +102,19 @@ public class LowestCommonAncestorSolutionTest {
 		Node a = new Node(2);
 		Node b = new Node(3);
 		assertEquals(4, bt.FindLCA(a, b).getData());
-		
 	}
+	
+	@Test
+	public void LCAAllRightBranches() {
+		BT bt = new BT();
+		bt.insert(0);
+		bt.insert(1);
+		bt.insert(2);
+		Node a = new Node(1);
+		Node b = new Node(2);
+		assertEquals(1, bt.FindLCA(a, b).getData());
+	}
+	
+	
 
 }
