@@ -82,4 +82,29 @@ class BT {
 		}
 		return false;
 	}
+
+	public Node FindLCA(Node a, Node b) {
+		return FindLCA(root, a, b);
+	}
+	
+	/*
+	 * FindLCA sourced from https://github.com/awangdev/LintCode/blob/master/Java/Lowest%20Common%20Ancestor.java
+	 */
+	private Node FindLCA(Node root, Node a, Node b) {
+		if (root == null || root == a || root == b) {
+			return root;
+		}
+		Node left = FindLCA(root.getLeft(), a, b);
+		Node right = FindLCA(root.getRight(), a, b);
+		
+		if (left == null && right == null) {
+			return null;
+		}
+		else if (left == null) {
+			return right;
+		}
+		else {
+			return root;
+		}
+	}
 }
