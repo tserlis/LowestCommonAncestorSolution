@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -57,15 +55,19 @@ public class LowestCommonAncestorSolutionTest {
 		bt.insert(0);
 		bt.insert(1);
 		bt.insert(2);
-		
-		assertEquals(0, bt.FindLCA(1,2));
+		Node a = new Node(1);
+		Node b = new Node(2);
+		Node result = new Node(0);
+		assertEquals(result, bt.FindLCA(a, b));
 	}
 	
 	@Test
 	public void LCAIn1NodeTreeTest() {
 		BT bt = new BT();
 		bt.insert(0);
-		assertEquals(0, bt.FindLCA(0, 0));
+		Node node = new Node(0);
+		Node result = new Node(0);
+		assertEquals(result, bt.FindLCA(node, node));
 	}
 	
 	@Test
@@ -78,7 +80,10 @@ public class LowestCommonAncestorSolutionTest {
 		bt.insert(4);
 		bt.insert(5);
 		bt.insert(6);
-		assertEquals(2, bt.FindLCA(6, 4));
+		Node a = new Node(6);
+		Node b = new Node(4);
+		Node result = new Node(2);
+		assertEquals(result, bt.FindLCA(a, b));
 	}
 	
 	@Test
@@ -90,7 +95,10 @@ public class LowestCommonAncestorSolutionTest {
 		bt.insert(3);
 		bt.insert(4);
 		bt.insert(5);
-		assertEquals(2, bt.FindLCA(5, 4));
+		Node a = new Node(4);
+		Node b = new Node(5);
+		Node result = new Node(2);
+		assertEquals(result, bt.FindLCA(a, b));
 		
 	}
 
