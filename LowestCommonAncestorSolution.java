@@ -61,27 +61,6 @@ class BT {
 		
 		return node;
 	}
-	
-	public boolean search(int data) {
-		return search(root, data);
-	}
-	
-	private boolean search(Node node, int data) {
-		if (node.getData() == data) {
-			return true;
-		}
-		if (node.getLeft() != null) {
-			if (search(node.getLeft(), data)) {
-				return true;
-			}
-		}
-		if (node.getRight() != null) {
-			if (search(node.getRight(), data)) {
-				return true;
-			}
-		}
-		return false;
-	}
 
 	public Node FindLCA(Node a, Node b) {
 		return FindLCA(root, a, b);
