@@ -27,25 +27,11 @@ public class LowestCommonAncestorSolutionTest {
 	}
 
 	@Test
-	public void BTreeIsEmptyTest() {
+	public void BTreeIsEmptyTestAndInsertTest() {
 		BT bt = new BT();
 		assertTrue(bt.isEmpty());
 		bt.insert(0);
 		assertFalse(bt.isEmpty());
-	}
-	
-	@Test
-	public void TreeSearchTrueAndInsertTest() {
-		BT bt = new BT();
-		bt.insert(0);
-		assertTrue(bt.search(0));
-	}
-	
-	@Test
-	public void TreeSearchFalse() {
-		BT bt = new BT();
-		bt.insert(0);
-		assertFalse(bt.search(2));
 	}
 	
 	@Test
@@ -61,11 +47,33 @@ public class LowestCommonAncestorSolutionTest {
 	}
 	
 	@Test
-	public void LCAIn1NodeTreeTest() {
+	public void LCAIn1NodeTreeErrorTest() {
 		BT bt = new BT();
 		bt.insert(0);
-		Node node = new Node(0);
-		assertEquals(0, bt.FindLCA(node, node).getData());
+		Node a = new Node(1);
+		Node b = new Node(2);
+		assertEquals(null, bt.FindLCA(a, b));
+	}
+	
+	@Test
+	 //test for finding LCA in a tree with only one branch
+	public void LCAin1LeftBranchTree() {
+		BT bt = new BT();
+		bt.insert(1);
+		bt.insert(0);
+		Node a = new Node(1);
+		Node b = new Node(0);
+		assertEquals(1, bt.FindLCA(a, b).getData());
+	}
+	
+	@Test
+	public void LCAin1RightBranchTree() {
+		BT bt = new BT();
+		bt.insert(0);
+		bt.insert(1);
+		Node a = new Node(0);
+		Node b = new Node(1);
+		assertEquals(0, bt.FindLCA(a, b).getData());
 	}
 	
 	@Test
