@@ -42,5 +42,44 @@ class BT {
 		return root == null;
 	}
 	
+	public void insert(int data) {
+		root = insert(root, data);
+	}
 	
+	private Node insert(Node node, int data) {
+		if (node == null) {
+			node = new Node(data);
+		}
+		else {
+			if (data<=node.getData()) {
+				node.left = insert(node.left, data);
+			}
+			else {
+				node.right = insert(node.right, data);
+			}
+		}
+		
+		return node;
+	}
+	
+	public boolean search(int data) {
+		return search(root, data);
+	}
+	
+	private boolean search(Node node, int data) {
+		if (node.getData() == data) {
+			return true;
+		}
+		if (node.getLeft() != null) {
+			if (search(node.getLeft(), data)) {
+				return true;
+			}
+		}
+		if (node.getRight() != null) {
+			if (search(node.getRight(), data)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
