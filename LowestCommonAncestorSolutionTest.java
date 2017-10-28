@@ -114,7 +114,9 @@ public class LowestCommonAncestorSolutionTest {
 		Node b = new Node(2);
 		assertEquals(1, bt.FindLCA(a, b).getData());
 	}
-	
-	
+  
+  @Test
+	public void LCAinDAG() {
+	}
 
 }
