@@ -116,7 +116,58 @@ public class LowestCommonAncestorSolutionTest {
 	}
   
   @Test
-	public void LCAinDAG() {
+	public void LCAin2ElementDAG() {
+		DirectedAcyclicGraph dag = new DirectedAcyclicGraph(2);
+		Node a = new Node(0);
+		Node b = new Node(1);
+		dag.addVertex(a);
+		dag.addVertex(b);
+		dag.addEdge(a, b);
+		assertEquals(0, dag.leastUpperBound(a, b).getData());
 	}
-
+	
+	@Test
+	public void LCAin3ElementGraph() {
+		DirectedAcyclicGraph dag = new DirectedAcyclicGraph(2);
+		Node a = new Node(0);
+		Node b = new Node(1);
+		Node c = new Node(2);
+		dag.addVertex(a);
+		dag.addVertex(b);
+		dag.addVertex(c);
+		dag.addEdge(a, b);
+		dag.addEdge(a, c);
+		assertEquals(0, dag.leastUpperBound(b, c).getData());
+	}
+	
+	@Test
+	public void LCAinAllOneRouteDAG() {
+		DirectedAcyclicGraph dag = new DirectedAcyclicGraph(2);
+		Node a = new Node(0);
+		Node b = new Node(1);
+		Node c = new Node(2);
+		dag.addVertex(a);
+		dag.addVertex(b);
+		dag.addVertex(c);
+		dag.addEdge(a, b);
+		dag.addEdge(b, c);
+		assertEquals(1, dag.leastUpperBound(b, c).getData());
+	}
+	
+	@Test
+	public void LCAatDifferentDepthsInGraph() {
+		DirectedAcyclicGraph dag = new DirectedAcyclicGraph(2);
+		Node a = new Node(0);
+		Node b = new Node(1);
+		Node c = new Node(2);
+		Node d = new Node(3);
+		dag.addVertex(a);
+		dag.addVertex(b);
+		dag.addVertex(c);
+		dag.addVertex(d);
+		dag.addEdge(a, b);
+		dag.addEdge(b, c);
+		dag.addEdge(a, d);
+		assertEquals(0, dag.leastUpperBound(d, c).getData());
+	}
 }
